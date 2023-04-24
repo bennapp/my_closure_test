@@ -10,8 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_23_174032) do
-  create_table "project_hierarchies", id: false, force: :cascade do |t|
+ActiveRecord::Schema[7.0].define(version: 2023_04_23_173837) do
+  create_table "hierarchies", id: false, force: :cascade do |t|
     t.integer "ancestor_id", null: false
     t.string "ancestor_type", null: false
     t.integer "descendant_id", null: false
@@ -27,16 +27,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_23_174032) do
     t.string "parent_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "task_hierarchies", id: false, force: :cascade do |t|
-    t.integer "ancestor_id", null: false
-    t.string "ancestor_type", null: false
-    t.integer "descendant_id", null: false
-    t.string "descendant_type", null: false
-    t.integer "generations", null: false
-    t.index ["ancestor_id", "ancestor_type", "descendant_id", "descendant_type", "generations"], name: "task_anc_desc_idx", unique: true
-    t.index ["descendant_id"], name: "task_desc_idx"
   end
 
   create_table "tasks", force: :cascade do |t|

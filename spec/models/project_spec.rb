@@ -14,6 +14,6 @@ RSpec.describe Project do
     child = Task.create!(name: 'child', parent: parent)
 
     expect(child.parent).to eq(parent)
-    expect(parent.descendants).to include(child)
+    expect(parent.poly_children).to include(child)
   end
 end
